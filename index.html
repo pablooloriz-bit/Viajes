@@ -221,7 +221,7 @@ body { background:var(--navy); color:var(--text); font-family:-apple-system,Blin
 const CLIENT_ID = 'd7692145-023b-4d59-b486-ac1d146be824';
 const TENANT_ID = 'fa319792-9bed-405b-b56a-18ec98fc2273';
 const GRAPH = 'https://graph.microsoft.com/v1.0';
-const SCOPES = ['User.Read', 'Files.ReadWrite.All'];
+const SCOPES = ['User.Read', 'Files.ReadWrite'];
 const FILE_NAME = 'FleetOps_Data.xlsx';
 
 // ── STATE ─────────────────────────────────────────────────
@@ -280,7 +280,7 @@ window.addEventListener('load', async () => {
 async function loginMicrosoft() {
   if (msalInstance) {
     try {
-      const resp = await msalInstance.loginPopup({ scopes: SCOPES });
+      const resp = await msalInstance.loginPopup({ scopes: SCOPES, prompt: 'consent' });
       await acquireToken(resp.account);
       setUser(resp.account);
       return;
