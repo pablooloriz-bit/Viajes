@@ -14,51 +14,56 @@
 }
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
 
-/* LAYOUT */
-.app{display:flex;flex-direction:column;min-height:100vh}
-.sidebar{display:none}
-.main{flex:1;padding:24px;max-width:1400px;margin:0 auto;width:100%}
-
-/* SIDEBAR */
-.sidebar-logo{padding:20px;border-bottom:1px solid var(--border)}
-.sidebar-logo-title{font-size:1.1rem;font-weight:800;color:var(--accent)}
-.sidebar-logo-sub{font-size:0.72rem;color:var(--muted);margin-top:2px}
-.sidebar-user{padding:14px 20px;border-bottom:1px solid var(--border)}
-.sidebar-user-name{font-size:0.85rem;font-weight:600}
-.sidebar-user-role{font-size:0.7rem;color:var(--muted)}
-.nav{padding:12px 0;flex:1}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;cursor:pointer;font-size:0.85rem;color:var(--muted);transition:all 0.2s;border-left:3px solid transparent}
-.nav-item:hover{background:var(--bg3);color:var(--text)}
-.nav-item.active{background:var(--bg3);color:var(--accent);border-left-color:var(--accent)}
-.nav-icon{font-size:1rem;width:20px;text-align:center}
-.btn-logout-side{margin:16px;background:none;border:1px solid var(--border);color:var(--muted);padding:8px;border-radius:8px;cursor:pointer;font-size:0.82rem;width:calc(100% - 32px)}
-.btn-logout-side:hover{border-color:var(--red);color:var(--red)}
-
-/* SCREENS */
-#screen-login.active{display:flex}
-#screen-login:not(.active){display:none}
-
 /* LOGIN */
-#screen-login{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--bg);z-index:1000}
+#screen-login{position:fixed;top:0;left:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;background:var(--bg);z-index:1000}
+#screen-login.active{display:flex}
 .login-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:36px;width:100%;max-width:380px}
 .login-logo{font-size:2.5rem;text-align:center;margin-bottom:8px}
 .login-title{font-size:1.4rem;font-weight:800;text-align:center;margin-bottom:4px}
 .login-sub{font-size:0.82rem;color:var(--muted);text-align:center;margin-bottom:28px}
-.field{margin-bottom:16px}
-.field label{display:block;font-size:0.78rem;color:var(--muted);margin-bottom:5px;font-weight:500}
-.field input{width:100%;background:var(--input);border:1px solid var(--border);color:var(--text);padding:11px 14px;border-radius:8px;font-size:0.9rem;outline:none;transition:border 0.2s}
-.field input:focus{border-color:var(--accent)}
-.btn-primary{background:var(--accent);color:white;border:none;padding:13px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;transition:background 0.2s}
-.btn-primary:hover{background:var(--accent2)}
-.btn-primary:disabled{background:var(--border);color:var(--muted);cursor:not-allowed}
 .login-err{color:var(--red);font-size:0.8rem;text-align:center;margin-top:10px;display:none}
 
-/* HEADER */
+/* APP */
+#screen-app{display:none;flex-direction:column;min-height:100vh}
+#screen-app.active{display:flex}
+
+/* TOP NAV */
+.topnav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;flex-shrink:0}
+.topnav-brand{font-weight:800;color:var(--accent);font-size:1rem;margin-right:8px;flex-shrink:0}
+.topnav-btn{background:none;border:none;color:var(--muted);padding:14px 16px;cursor:pointer;font-size:0.85rem;border-bottom:3px solid transparent;transition:all 0.2s;flex-shrink:0}
+.topnav-btn:hover{color:var(--text)}
+.topnav-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.topnav-user{margin-left:auto;font-size:0.78rem;color:var(--muted);padding:0 8px;flex-shrink:0}
+.topnav-logout{background:none;border:1px solid var(--border);color:var(--muted);padding:6px 12px;border-radius:6px;cursor:pointer;font-size:0.75rem;flex-shrink:0}
+.topnav-logout:hover{border-color:var(--red);color:var(--red)}
+
+/* MAIN */
+.main{flex:1;padding:24px;max-width:1400px;margin:0 auto;width:100%}
+
+/* TABS */
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* FIELDS */
+.field{margin-bottom:16px}
+.field label{display:block;font-size:0.78rem;color:var(--muted);margin-bottom:5px;font-weight:500}
+.field input,.field select{width:100%;background:var(--input);border:1px solid var(--border);color:var(--text);padding:11px 14px;border-radius:8px;font-size:0.9rem;outline:none;transition:border 0.2s}
+.field input:focus,.field select:focus{border-color:var(--accent)}
+
+/* BUTTONS */
+.btn-primary{background:var(--accent);color:white;border:none;padding:13px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;transition:background 0.2s}
+.btn-primary:hover{background:var(--accent2)}
+.btn-secondary{background:none;color:var(--muted);border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:0.82rem;cursor:pointer}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.btn-green{background:var(--green);color:#000;border:none;padding:8px 16px;border-radius:8px;font-size:0.82rem;font-weight:700;cursor:pointer}
+.btn-sm{padding:6px 12px;font-size:0.78rem;border-radius:7px}
+
+/* PAGE HEADER */
 .page-header{margin-bottom:24px}
 .page-title{font-size:1.4rem;font-weight:800}
 .page-sub{font-size:0.82rem;color:var(--muted);margin-top:3px}
 
-/* CARDS */
+/* KPI CARDS */
 .cards-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:24px}
 .kpi-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
 .kpi-label{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px}
@@ -68,6 +73,18 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .kpi-card.blue .kpi-val{color:var(--accent)}
 .kpi-card.orange .kpi-val{color:var(--orange)}
 .kpi-card.purple .kpi-val{color:var(--purple)}
+
+/* CHARTS */
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:900px){.chart-row{grid-template-columns:1fr}}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+.chart-title{font-size:0.85rem;font-weight:700;margin-bottom:16px}
+.bar-chart{display:flex;flex-direction:column;gap:8px}
+.bar-row{display:flex;align-items:center;gap:10px}
+.bar-label{font-size:0.75rem;color:var(--muted);width:110px;text-align:right;flex-shrink:0}
+.bar-track{flex:1;background:var(--bg3);border-radius:4px;height:20px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:0.7rem;font-weight:700;color:white;transition:width 0.6s}
+.bar-val{font-size:0.75rem;color:var(--muted);width:40px;flex-shrink:0}
 
 /* TABLE */
 .table-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px}
@@ -85,25 +102,12 @@ tr:hover td{background:var(--bg3)}
 .badge-green{background:#0f2a1a;color:var(--green);border:1px solid var(--green)}
 .badge-blue{background:#1e3a5f;color:var(--accent);border:1px solid var(--accent)}
 .badge-orange{background:#2a1e0f;color:var(--orange);border:1px solid var(--orange)}
-.badge-purple{background:#2a1a3a;color:var(--purple);border:1px solid var(--purple)}
 .empty-state{padding:40px;text-align:center;color:var(--muted);font-size:0.85rem}
-
-/* CHART */
-.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
-@media(max-width:900px){.chart-row{grid-template-columns:1fr}}
-.chart-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
-.chart-title{font-size:0.85rem;font-weight:700;margin-bottom:16px}
-.bar-chart{display:flex;flex-direction:column;gap:8px}
-.bar-row{display:flex;align-items:center;gap:10px}
-.bar-label{font-size:0.75rem;color:var(--muted);width:110px;text-align:right;flex-shrink:0}
-.bar-track{flex:1;background:var(--bg3);border-radius:4px;height:20px;overflow:hidden}
-.bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:0.7rem;font-weight:700;color:white;transition:width 0.6s}
-.bar-val{font-size:0.75rem;color:var(--muted);width:40px;flex-shrink:0}
 
 /* MAP */
 .map-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px}
-.map-header{padding:16px 20px;border-bottom:1px solid var(--border)}
-#map{height:420px;width:100%}
+.map-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+#map{height:460px;width:100%}
 .map-legend{padding:12px 20px;display:flex;gap:16px;flex-wrap:wrap}
 .map-leg-item{display:flex;align-items:center;gap:6px;font-size:0.75rem;color:var(--muted)}
 .map-dot{width:10px;height:10px;border-radius:50%}
@@ -115,17 +119,11 @@ tr:hover td{background:var(--bg3)}
 .user-info{flex:1}
 .user-name{font-size:0.9rem;font-weight:600}
 .user-role{font-size:0.72rem;color:var(--muted)}
-.btn-remove{background:none;border:none;color:var(--red);cursor:pointer;font-size:0.8rem;padding:4px 8px;border-radius:6px;border:1px solid transparent}
+.btn-remove{background:none;border:1px solid transparent;color:var(--red);cursor:pointer;font-size:0.8rem;padding:4px 8px;border-radius:6px}
 .btn-remove:hover{border-color:var(--red)}
 .add-user-card{background:var(--card);border:1px dashed var(--border);border-radius:12px;padding:20px}
 .add-user-title{font-size:0.85rem;font-weight:700;margin-bottom:14px;color:var(--accent)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-
-/* BUTTONS */
-.btn-secondary{background:none;color:var(--muted);border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:0.82rem;cursor:pointer}
-.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
-.btn-green{background:var(--green);color:#000;border:none;padding:8px 16px;border-radius:8px;font-size:0.82rem;font-weight:700;cursor:pointer}
-.btn-sm{padding:6px 12px;font-size:0.78rem;border-radius:7px}
 
 /* LOADING */
 .loading{display:flex;align-items:center;justify-content:center;padding:40px;color:var(--muted);gap:10px}
@@ -133,182 +131,172 @@ tr:hover td{background:var(--bg3)}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* TOAST */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--card);border:1px solid var(--accent);color:var(--text);padding:12px 20px;border-radius:10px;font-size:0.85rem;z-index:999;opacity:0;transition:opacity 0.3s;pointer-events:none}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--card);border:1px solid var(--accent);color:var(--text);padding:12px 20px;border-radius:10px;font-size:0.85rem;z-index:9999;opacity:0;transition:opacity 0.3s;pointer-events:none}
 .toast.show{opacity:1}
 </style>
 </head>
 <body>
 
 <!-- LOGIN -->
-<div id="screen-login" class="screen active">
+<div id="screen-login" class="active">
   <div class="login-box">
     <div class="login-logo">📊</div>
     <div class="login-title">FleetOps Consola</div>
     <div class="login-sub">Acceso para supervisores</div>
     <div class="field"><label>Usuario</label><input type="text" id="login-user" placeholder="usuario" autocomplete="username"></div>
-    <div class="field"><label>Contraseña</label><input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <div class="field"><label>Contraseña</label><input type="password" id="login-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
     <button class="btn-primary" onclick="doLogin()">Ingresar</button>
     <div class="login-err" id="login-err">Usuario o contraseña incorrectos</div>
   </div>
 </div>
 
 <!-- APP -->
-<div id="screen-app" class="screen">
-  <div class="app">
-    <!-- TOP NAV -->
-    <div class="topnav">
-      <span style="font-weight:800;color:var(--accent);font-size:1rem;margin-right:8px;flex-shrink:0">⚡ FleetOps</span>
-      <button class="topnav-btn active" onclick="showTab('dashboard')" id="nav-dashboard">📊 Dashboard</button>
-      <button class="topnav-btn" onclick="showTab('en-curso')" id="nav-en-curso">🚛 En curso</button>
-      <button class="topnav-btn" onclick="showTab('historial')" id="nav-historial">📋 Historial</button>
-      <button class="topnav-btn" onclick="showTab('mapa')" id="nav-mapa">🗺️ Mapa</button>
-      <button class="topnav-btn" onclick="showTab('usuarios')" id="nav-usuarios">👥 Usuarios</button>
-      <div class="topnav-user" id="sb-user-name"></div>
-      <button class="topnav-logout" onclick="doLogout()">Salir</button>
+<div id="screen-app">
+
+  <!-- TOP NAV -->
+  <div class="topnav">
+    <span class="topnav-brand">⚡ FleetOps</span>
+    <button class="topnav-btn active" onclick="showTab('dashboard')" id="nav-dashboard">📊 Dashboard</button>
+    <button class="topnav-btn" onclick="showTab('en-curso')" id="nav-en-curso">🚛 En curso</button>
+    <button class="topnav-btn" onclick="showTab('historial')" id="nav-historial">📋 Historial</button>
+    <button class="topnav-btn" onclick="showTab('mapa')" id="nav-mapa">🗺️ Mapa</button>
+    <button class="topnav-btn" onclick="showTab('usuarios')" id="nav-usuarios">👥 Usuarios</button>
+    <div class="topnav-user" id="topnav-user"></div>
+    <button class="topnav-logout" onclick="doLogout()">Salir</button>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- DASHBOARD -->
+    <div id="tab-dashboard" class="tab-content active">
+      <div class="page-header">
+        <div class="page-title">Dashboard</div>
+        <div class="page-sub" id="dash-updated"></div>
+      </div>
+      <div class="cards-row" id="kpi-cards"><div class="loading"><div class="spinner"></div> Cargando...</div></div>
+      <div class="chart-row">
+        <div class="chart-card"><div class="chart-title">Viajes por módulo</div><div class="bar-chart" id="chart-modulos"></div></div>
+        <div class="chart-card"><div class="chart-title">Duración promedio por módulo (min)</div><div class="bar-chart" id="chart-duracion"></div></div>
+      </div>
     </div>
 
-    <!-- MAIN -->
-    <div class="main">
+    <!-- EN CURSO -->
+    <div id="tab-en-curso" class="tab-content">
+      <div class="page-header">
+        <div class="page-title">Viajes en curso</div>
+        <div class="page-sub">Último hito registrado por cada viaje activo</div>
+      </div>
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title">Operaciones activas</div>
+          <button class="btn-secondary btn-sm" onclick="loadData()">↻ Actualizar</button>
+        </div>
+        <div class="table-wrap"><div id="table-en-curso"><div class="loading"><div class="spinner"></div> Cargando...</div></div></div>
+      </div>
+    </div>
 
-      <!-- DASHBOARD -->
-      <div id="tab-dashboard" class="tab-content active">
-        <div class="page-header">
-          <div class="page-title">Dashboard</div>
-          <div class="page-sub" id="dash-updated"></div>
+    <!-- HISTORIAL -->
+    <div id="tab-historial" class="tab-content">
+      <div class="page-header">
+        <div class="page-title">Historial de viajes</div>
+        <div class="page-sub">Todos los viajes completados</div>
+      </div>
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title">Viajes</div>
+          <div class="filters">
+            <input type="date" class="filter-input" id="f-desde" onchange="renderHistorial()">
+            <input type="date" class="filter-input" id="f-hasta" onchange="renderHistorial()">
+            <select class="filter-input" id="f-modulo" onchange="renderHistorial()">
+              <option value="">Todos los módulos</option>
+              <option>Ambiental</option><option>Combustibles</option><option>Recorridas</option>
+              <option>Naval SLOP</option><option>Naval Comb.</option><option>Derivaciones</option><option>Interplanta</option>
+            </select>
+            <input type="text" class="filter-input" id="f-chofer" placeholder="Chofer..." oninput="renderHistorial()">
+            <button class="btn-green btn-sm" onclick="exportCSV()">⬇ CSV</button>
+          </div>
         </div>
-        <div class="cards-row" id="kpi-cards">
-          <div class="loading"><div class="spinner"></div> Cargando...</div>
+        <div class="table-wrap"><div id="table-historial"><div class="loading"><div class="spinner"></div> Cargando...</div></div></div>
+      </div>
+    </div>
+
+    <!-- MAPA -->
+    <div id="tab-mapa" class="tab-content">
+      <div class="page-header">
+        <div class="page-title">Mapa de operaciones</div>
+        <div class="page-sub">Última posición GPS registrada por viaje</div>
+      </div>
+      <div class="map-card">
+        <div class="map-header">
+          <div class="table-title">Posiciones</div>
+          <button class="btn-secondary btn-sm" onclick="renderMapa()">↻ Actualizar</button>
         </div>
-        <div class="chart-row">
-          <div class="chart-card"><div class="chart-title">Viajes por módulo</div><div class="bar-chart" id="chart-modulos"></div></div>
-          <div class="chart-card"><div class="chart-title">Duración promedio por módulo (min)</div><div class="bar-chart" id="chart-duracion"></div></div>
+        <div id="map"></div>
+        <div class="map-legend">
+          <div class="map-leg-item"><div class="map-dot" style="background:var(--green)"></div> En curso</div>
+          <div class="map-leg-item"><div class="map-dot" style="background:var(--accent)"></div> Completado</div>
         </div>
       </div>
+    </div>
 
-      <!-- EN CURSO -->
-      <div id="tab-en-curso" class="tab-content">
-        <div class="page-header">
-          <div class="page-title">Viajes en curso</div>
-          <div class="page-sub">Último hito registrado por cada viaje activo</div>
-        </div>
-        <div class="table-card">
-          <div class="table-header">
-            <div class="table-title">Operaciones activas</div>
-            <button class="btn-secondary btn-sm" onclick="loadData()">↻ Actualizar</button>
-          </div>
-          <div class="table-wrap"><div id="table-en-curso"><div class="loading"><div class="spinner"></div> Cargando...</div></div></div>
-        </div>
+    <!-- USUARIOS -->
+    <div id="tab-usuarios" class="tab-content">
+      <div class="page-header">
+        <div class="page-title">Gestión de usuarios</div>
+        <div class="page-sub">Supervisores con acceso a la consola</div>
       </div>
-
-      <!-- HISTORIAL -->
-      <div id="tab-historial" class="tab-content">
-        <div class="page-header">
-          <div class="page-title">Historial de viajes</div>
-          <div class="page-sub">Todos los viajes completados</div>
+      <div class="users-grid" id="users-grid"></div>
+      <div class="add-user-card">
+        <div class="add-user-title">+ Agregar supervisor</div>
+        <div class="form-row">
+          <div class="field" style="margin:0"><label>Nombre</label><input type="text" id="new-nombre" placeholder="Juan Pérez"></div>
+          <div class="field" style="margin:0"><label>Usuario</label><input type="text" id="new-user" placeholder="jperez"></div>
         </div>
-        <div class="table-card">
-          <div class="table-header">
-            <div class="table-title">Viajes</div>
-            <div class="filters">
-              <input type="date" class="filter-input" id="f-desde" onchange="renderHistorial()">
-              <input type="date" class="filter-input" id="f-hasta" onchange="renderHistorial()">
-              <select class="filter-input" id="f-modulo" onchange="renderHistorial()">
-                <option value="">Todos los módulos</option>
-                <option>Ambiental</option><option>Combustibles</option><option>Recorridas</option>
-                <option>Naval SLOP</option><option>Naval Comb.</option><option>Derivaciones</option><option>Interplanta</option>
-              </select>
-              <input type="text" class="filter-input" id="f-chofer" placeholder="Chofer..." oninput="renderHistorial()">
-              <button class="btn-green btn-sm" onclick="exportCSV()">⬇ CSV</button>
-            </div>
+        <div class="form-row" style="margin-top:10px">
+          <div class="field" style="margin:0"><label>Contraseña</label><input type="password" id="new-pass" placeholder="••••••••"></div>
+          <div class="field" style="margin:0"><label>Rol</label>
+            <select id="new-rol" style="width:100%;background:var(--input);border:1px solid var(--border);color:var(--text);padding:11px 12px;border-radius:8px;font-size:0.9rem;outline:none">
+              <option value="supervisor">Supervisor</option>
+              <option value="admin">Administrador</option>
+            </select>
           </div>
-          <div class="table-wrap"><div id="table-historial"><div class="loading"><div class="spinner"></div> Cargando...</div></div></div>
         </div>
+        <button class="btn-primary btn-sm" style="margin-top:14px;width:auto;padding:10px 24px" onclick="addUser()">Agregar usuario</button>
       </div>
+    </div>
 
-      <!-- MAPA -->
-      <div id="tab-mapa" class="tab-content">
-        <div class="page-header">
-          <div class="page-title">Mapa de operaciones</div>
-          <div class="page-sub">Última posición GPS registrada por viaje</div>
-        </div>
-        <div class="map-card">
-          <div class="map-header" style="display:flex;justify-content:space-between;align-items:center">
-            <div class="table-title">Posiciones</div>
-            <button class="btn-secondary btn-sm" onclick="renderMapa()">↻ Actualizar</button>
-          </div>
-          <div id="map"></div>
-          <div class="map-legend">
-            <div class="map-leg-item"><div class="map-dot" style="background:var(--green)"></div> En curso</div>
-            <div class="map-leg-item"><div class="map-dot" style="background:var(--accent)"></div> Completado</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- USUARIOS -->
-      <div id="tab-usuarios" class="tab-content">
-        <div class="page-header">
-          <div class="page-title">Gestión de usuarios</div>
-          <div class="page-sub">Supervisores con acceso a la consola</div>
-        </div>
-        <div class="users-grid" id="users-grid"></div>
-        <div class="add-user-card">
-          <div class="add-user-title">+ Agregar supervisor</div>
-          <div class="form-row">
-            <div class="field" style="margin:0"><label>Nombre</label><input type="text" id="new-nombre" placeholder="Juan Pérez"></div>
-            <div class="field" style="margin:0"><label>Usuario</label><input type="text" id="new-user" placeholder="jperez"></div>
-          </div>
-          <div class="form-row" style="margin-top:10px">
-            <div class="field" style="margin:0"><label>Contraseña</label><input type="password" id="new-pass" placeholder="••••••••"></div>
-            <div class="field" style="margin:0"><label>Rol</label>
-              <select id="new-rol" style="width:100%;background:var(--input);border:1px solid var(--border);color:var(--text);padding:11px 12px;border-radius:8px;font-size:0.9rem;outline:none">
-                <option value="supervisor">Supervisor</option>
-                <option value="admin">Administrador</option>
-              </select>
-            </div>
-          </div>
-          <button class="btn-primary btn-sm" style="margin-top:14px;width:auto;padding:10px 24px" onclick="addUser()">Agregar usuario</button>
-        </div>
-      </div>
-
-    </div><!-- /main -->
-  </div><!-- /app -->
+  </div><!-- /main -->
 </div><!-- /screen-app -->
 
 <div class="toast" id="toast"></div>
 
-<!-- Leaflet para el mapa -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-
 <script>
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxlGdIqGkbk6uSZvFo-MSkuM9If3wGcOmGMUQPewKeSp2yTUH6zp1lNSS1Kc0w2p-F-/exec';
 
-// ── USUARIOS (guardados en localStorage del navegador del supervisor) ─────────
 function getUsers() {
-  const def = [{ nombre:'Admin', user:'admin', pass:'fleet2026', rol:'admin' }];
-  try { return JSON.parse(localStorage.getItem('fleetops_users')) || def; } catch { return def; }
+  try { return JSON.parse(localStorage.getItem('fleetops_users')) || [{ nombre:'Admin', user:'admin', pass:'fleet2026', rol:'admin' }]; }
+  catch { return [{ nombre:'Admin', user:'admin', pass:'fleet2026', rol:'admin' }]; }
 }
 function saveUsers(u) { localStorage.setItem('fleetops_users', JSON.stringify(u)); }
 
-// ── STATE ─────────────────────────────────────────────────
 let currentSupervisor = null;
 let allViajes = [];
 let allHitos = [];
 let mapInstance = null;
 
-// ── INIT ──────────────────────────────────────────────────
 window.addEventListener('load', () => {
   const saved = sessionStorage.getItem('fleetops_supervisor');
   if (saved) { currentSupervisor = JSON.parse(saved); initConsola(); }
   else { document.getElementById('screen-login').classList.add('active'); }
 });
 
-// ── AUTH ──────────────────────────────────────────────────
 function doLogin() {
   const u = document.getElementById('login-user').value.trim();
   const p = document.getElementById('login-pass').value;
-  const users = getUsers();
-  const found = users.find(x => x.user === u && x.pass === p);
+  const found = getUsers().find(x => x.user === u && x.pass === p);
   if (!found) { document.getElementById('login-err').style.display='block'; return; }
   currentSupervisor = found;
   sessionStorage.setItem('fleetops_supervisor', JSON.stringify(found));
@@ -319,228 +307,153 @@ function doLogin() {
 function doLogout() {
   sessionStorage.removeItem('fleetops_supervisor');
   currentSupervisor = null;
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-app').classList.remove('active');
   document.getElementById('screen-login').classList.add('active');
 }
 
 function initConsola() {
   document.getElementById('screen-login').classList.remove('active');
   document.getElementById('screen-app').classList.add('active');
-  document.getElementById('sb-user-name').textContent = currentSupervisor.nombre + ' · ' + (currentSupervisor.rol === 'admin' ? '⚙️ Admin' : '👁️ Supervisor');
+  document.getElementById('topnav-user').textContent = currentSupervisor.nombre + ' · ' + (currentSupervisor.rol==='admin'?'⚙️ Admin':'👁️ Supervisor');
   loadData();
   renderUsuarios();
 }
 
-// ── DATA ──────────────────────────────────────────────────
 async function loadData() {
   try {
     const [vRes, hRes] = await Promise.all([
       fetch(SCRIPT_URL + '?action=getViajes'),
       fetch(SCRIPT_URL + '?action=getHitos')
     ]);
-    const vData = await vRes.json();
-    const hData = await hRes.json();
-    allViajes = vData.data || [];
-    allHitos  = hData.data || [];
+    allViajes = (await vRes.json()).data || [];
+    allHitos  = (await hRes.json()).data || [];
     document.getElementById('dash-updated').textContent = 'Actualizado: ' + new Date().toLocaleTimeString('es-AR');
     renderDashboard();
     renderEnCurso();
     renderHistorial();
-  } catch(e) {
-    showToast('⚠️ Error al cargar datos: ' + e.message);
-  }
+  } catch(e) { showToast('⚠️ Error al cargar datos: ' + e.message); }
 }
 
-// ── DASHBOARD ─────────────────────────────────────────────
 function renderDashboard() {
   const hoy = new Date().toLocaleDateString('es-AR');
   const vHoy = allViajes.filter(v => new Date(v.Fecha_Inicio).toLocaleDateString('es-AR') === hoy);
-  const duraciones = allViajes.filter(v=>v.Duración_Min>0).map(v=>+v.Duración_Min);
-  const promDur = duraciones.length ? Math.round(duraciones.reduce((a,b)=>a+b,0)/duraciones.length) : 0;
-
-  // Contar en curso (tienen fecha inicio pero no fin, o fin vacío)
+  const durs = allViajes.filter(v=>+v.Duración_Min>0).map(v=>+v.Duración_Min);
+  const prom = durs.length ? Math.round(durs.reduce((a,b)=>a+b,0)/durs.length) : 0;
   const enCurso = getViajesEnCurso().length;
 
   document.getElementById('kpi-cards').innerHTML = `
     <div class="kpi-card blue"><div class="kpi-label">Total viajes</div><div class="kpi-val">${allViajes.length}</div><div class="kpi-sub">Histórico</div></div>
     <div class="kpi-card green"><div class="kpi-label">Hoy</div><div class="kpi-val">${vHoy.length}</div><div class="kpi-sub">Viajes iniciados</div></div>
     <div class="kpi-card orange"><div class="kpi-label">En curso</div><div class="kpi-val">${enCurso}</div><div class="kpi-sub">Activos ahora</div></div>
-    <div class="kpi-card purple"><div class="kpi-label">Duración prom.</div><div class="kpi-val">${promDur}<span style="font-size:1rem">min</span></div><div class="kpi-sub">Por viaje</div></div>`;
+    <div class="kpi-card purple"><div class="kpi-label">Duración prom.</div><div class="kpi-val">${prom}<span style="font-size:1rem">min</span></div><div class="kpi-sub">Por viaje</div></div>`;
 
-  // Chart módulos
-  const porModulo = {};
-  allViajes.forEach(v=>{ porModulo[v.Módulo]=(porModulo[v.Módulo]||0)+1; });
-  const maxM = Math.max(...Object.values(porModulo), 1);
+  const porMod = {};
+  allViajes.forEach(v=>{ porMod[v.Módulo]=(porMod[v.Módulo]||0)+1; });
+  const maxM = Math.max(...Object.values(porMod),1);
   const colors = ['#3b82f6','#22c55e','#f59e0b','#a855f7','#ef4444','#06b6d4','#ec4899'];
-  document.getElementById('chart-modulos').innerHTML = Object.entries(porModulo).sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>`
-    <div class="bar-row">
-      <div class="bar-label">${k}</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${Math.round(v/maxM*100)}%;background:${colors[i%colors.length]}">${v}</div></div>
-      <div class="bar-val">${v}</div>
-    </div>`).join('');
+  document.getElementById('chart-modulos').innerHTML = Object.entries(porMod).sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>`
+    <div class="bar-row"><div class="bar-label">${k}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.round(v/maxM*100)}%;background:${colors[i%7]}">${v}</div></div><div class="bar-val">${v}</div></div>`).join('');
 
-  // Chart duración
-  const durPorMod = {};
-  allViajes.filter(v=>v.Duración_Min>0).forEach(v=>{
-    if (!durPorMod[v.Módulo]) durPorMod[v.Módulo]=[];
-    durPorMod[v.Módulo].push(+v.Duración_Min);
-  });
-  const durAvg = Object.entries(durPorMod).map(([k,arr])=>([k, Math.round(arr.reduce((a,b)=>a+b,0)/arr.length)]));
-  const maxD = Math.max(...durAvg.map(x=>x[1]), 1);
+  const durMod = {};
+  allViajes.filter(v=>+v.Duración_Min>0).forEach(v=>{ if(!durMod[v.Módulo]) durMod[v.Módulo]=[]; durMod[v.Módulo].push(+v.Duración_Min); });
+  const durAvg = Object.entries(durMod).map(([k,a])=>([k,Math.round(a.reduce((x,y)=>x+y,0)/a.length)]));
+  const maxD = Math.max(...durAvg.map(x=>x[1]),1);
   document.getElementById('chart-duracion').innerHTML = durAvg.sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>`
-    <div class="bar-row">
-      <div class="bar-label">${k}</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${Math.round(v/maxD*100)}%;background:${colors[i%colors.length]}">${v}</div></div>
-      <div class="bar-val">${v}</div>
-    </div>`).join('');
+    <div class="bar-row"><div class="bar-label">${k}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.round(v/maxD*100)}%;background:${colors[i%7]}">${v}</div></div><div class="bar-val">${v}</div></div>`).join('');
 }
 
-// ── EN CURSO ──────────────────────────────────────────────
-function getViajesEnCurso() {
-  // Viajes que tienen hitos pero cuyo último hito NO es el último de la secuencia
-  // Simplificado: viajes sin Fecha_Fin o con Fecha_Fin vacío
-  return allViajes.filter(v => !v.Fecha_Fin || v.Fecha_Fin === '');
-}
+function getViajesEnCurso() { return allViajes.filter(v=>!v.Fecha_Fin||v.Fecha_Fin===''); }
 
 function renderEnCurso() {
-  const enCurso = getViajesEnCurso();
+  const ec = getViajesEnCurso();
   const cont = document.getElementById('table-en-curso');
-  if (!enCurso.length) { cont.innerHTML='<div class="empty-state">No hay viajes en curso</div>'; return; }
-
-  // Para cada viaje en curso, buscar el último hito registrado
-  const rows = enCurso.map(v => {
-    const hitos = allHitos.filter(h => h.ID_Viaje === v.ID_Viaje).sort((a,b)=>b.Nro_Hito-a.Nro_Hito);
-    const ultimo = hitos[0];
-    const elapsed = Math.round((Date.now() - new Date(v.Fecha_Inicio)) / 60000);
-    return `<tr>
-      <td><span class="badge badge-orange">EN CURSO</span></td>
-      <td><strong>${v.Orden_Interna}</strong></td>
-      <td>${v.Módulo}</td>
-      <td>${v.Chofer}</td>
-      <td>${v.Patente_Chasis}</td>
-      <td>${v.Generadores||'—'}</td>
-      <td>${formatDT(new Date(v.Fecha_Inicio))}</td>
-      <td>${elapsed} min</td>
-      <td>${ultimo ? `<span class="badge badge-blue">${ultimo.Nombre_Hito}</span>` : '—'}</td>
-      <td>${ultimo?.GPS || '—'}</td>
-    </tr>`;
+  if (!ec.length) { cont.innerHTML='<div class="empty-state">No hay viajes en curso</div>'; return; }
+  const rows = ec.map(v=>{
+    const hitos = allHitos.filter(h=>h.ID_Viaje===v.ID_Viaje).sort((a,b)=>b.Nro_Hito-a.Nro_Hito);
+    const ult = hitos[0];
+    const elapsed = Math.round((Date.now()-new Date(v.Fecha_Inicio))/60000);
+    return `<tr><td><span class="badge badge-orange">EN CURSO</span></td><td><strong>${v.Orden_Interna}</strong></td><td>${v.Módulo}</td><td>${v.Chofer}</td><td>${v.Patente_Chasis}</td><td>${v.Generadores||'—'}</td><td>${formatDT(new Date(v.Fecha_Inicio))}</td><td>${elapsed} min</td><td>${ult?`<span class="badge badge-blue">${ult.Nombre_Hito}</span>`:'—'}</td><td>${ult?.GPS||'—'}</td></tr>`;
   }).join('');
-
-  cont.innerHTML = `<table>
-    <thead><tr><th>Estado</th><th>Orden</th><th>Módulo</th><th>Chofer</th><th>Chasis</th><th>Generador</th><th>Inicio</th><th>Tiempo</th><th>Último hito</th><th>GPS</th></tr></thead>
-    <tbody>${rows}</tbody></table>`;
+  cont.innerHTML=`<table><thead><tr><th>Estado</th><th>Orden</th><th>Módulo</th><th>Chofer</th><th>Chasis</th><th>Generador</th><th>Inicio</th><th>Tiempo</th><th>Último hito</th><th>GPS</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
-// ── HISTORIAL ─────────────────────────────────────────────
 function renderHistorial() {
   const desde = document.getElementById('f-desde').value;
   const hasta = document.getElementById('f-hasta').value;
-  const modulo = document.getElementById('f-modulo').value.toLowerCase();
+  const mod = document.getElementById('f-modulo').value.toLowerCase();
   const chofer = document.getElementById('f-chofer').value.toLowerCase();
-
-  let filtered = allViajes.filter(v => v.Fecha_Fin && v.Fecha_Fin !== '');
-  if (desde) filtered = filtered.filter(v => new Date(v.Fecha_Inicio) >= new Date(desde));
-  if (hasta) filtered = filtered.filter(v => new Date(v.Fecha_Inicio) <= new Date(hasta + 'T23:59:59'));
-  if (modulo) filtered = filtered.filter(v => v.Módulo?.toLowerCase().includes(modulo));
-  if (chofer) filtered = filtered.filter(v => v.Chofer?.toLowerCase().includes(chofer));
-
+  let f = allViajes.filter(v=>v.Fecha_Fin&&v.Fecha_Fin!=='');
+  if (desde) f=f.filter(v=>new Date(v.Fecha_Inicio)>=new Date(desde));
+  if (hasta) f=f.filter(v=>new Date(v.Fecha_Inicio)<=new Date(hasta+'T23:59:59'));
+  if (mod) f=f.filter(v=>v.Módulo?.toLowerCase().includes(mod));
+  if (chofer) f=f.filter(v=>v.Chofer?.toLowerCase().includes(chofer));
   const cont = document.getElementById('table-historial');
-  if (!filtered.length) { cont.innerHTML='<div class="empty-state">Sin resultados</div>'; return; }
-
-  const rows = filtered.sort((a,b)=>new Date(b.Fecha_Inicio)-new Date(a.Fecha_Inicio)).map(v=>`<tr>
-    <td>${v.Orden_Interna}</td>
-    <td><span class="badge badge-blue">${v.Módulo}</span></td>
-    <td>${v.Chofer}</td>
-    <td>${v.Patente_Chasis}</td>
-    <td>${v.Generadores||'—'}</td>
-    <td>${formatDT(new Date(v.Fecha_Inicio))}</td>
-    <td>${v.Fecha_Fin ? formatDT(new Date(v.Fecha_Fin)) : '—'}</td>
-    <td>${v.Duración_Min ? v.Duración_Min + ' min' : '—'}</td>
-    <td>${v.Empresa||'—'}</td>
-  </tr>`).join('');
-
-  cont.innerHTML = `<table>
-    <thead><tr><th>Orden</th><th>Módulo</th><th>Chofer</th><th>Chasis</th><th>Generador</th><th>Inicio</th><th>Fin</th><th>Duración</th><th>Empresa</th></tr></thead>
-    <tbody>${rows}</tbody></table>`;
+  if (!f.length) { cont.innerHTML='<div class="empty-state">Sin resultados</div>'; return; }
+  const rows = f.sort((a,b)=>new Date(b.Fecha_Inicio)-new Date(a.Fecha_Inicio)).map(v=>`<tr>
+    <td>${v.Orden_Interna}</td><td><span class="badge badge-blue">${v.Módulo}</span></td><td>${v.Chofer}</td>
+    <td>${v.Patente_Chasis}</td><td>${v.Generadores||'—'}</td>
+    <td>${formatDT(new Date(v.Fecha_Inicio))}</td><td>${v.Fecha_Fin?formatDT(new Date(v.Fecha_Fin)):'—'}</td>
+    <td>${v.Duración_Min?v.Duración_Min+' min':'—'}</td><td>${v.Empresa||'—'}</td></tr>`).join('');
+  cont.innerHTML=`<table><thead><tr><th>Orden</th><th>Módulo</th><th>Chofer</th><th>Chasis</th><th>Generador</th><th>Inicio</th><th>Fin</th><th>Duración</th><th>Empresa</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
-// ── EXPORT CSV ────────────────────────────────────────────
 function exportCSV() {
-  const headers = ['Orden','Módulo','Chofer','Patente_Chasis','Patente_Acoplado','Generadores','Fecha_Inicio','Fecha_Fin','Duración_Min','Empresa'];
-  const rows = allViajes.map(v => headers.map(h => `"${v[h]||''}"`).join(','));
-  const csv = [headers.join(','), ...rows].join('\n');
-  const a = document.createElement('a');
-  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-  a.download = `FleetOps_${new Date().toISOString().slice(0,10)}.csv`;
+  const headers=['Orden_Interna','Módulo','Chofer','Patente_Chasis','Patente_Acoplado','Generadores','Fecha_Inicio','Fecha_Fin','Duración_Min','Empresa'];
+  const rows=allViajes.map(v=>headers.map(h=>`"${v[h]||''}"`).join(','));
+  const csv=[headers.join(','),...rows].join('\n');
+  const a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download=`FleetOps_${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
   showToast('✅ CSV exportado');
 }
 
-// ── MAPA ──────────────────────────────────────────────────
 function renderMapa() {
   if (!mapInstance) {
-    mapInstance = L.map('map').setView([-34.6, -58.4], 6);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution:'© OpenStreetMap' }).addTo(mapInstance);
+    mapInstance = L.map('map').setView([-34.6,-58.4],6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(mapInstance);
   } else {
-    mapInstance.eachLayer(l => { if (l instanceof L.Marker) mapInstance.removeLayer(l); });
+    mapInstance.eachLayer(l=>{ if(l instanceof L.Marker) mapInstance.removeLayer(l); });
   }
-
-  let hasMarkers = false;
-  const enCursoIds = new Set(getViajesEnCurso().map(v=>v.ID_Viaje));
-
-  // Agrupar hitos por viaje, tomar el último con GPS válido
-  const porViaje = {};
-  allHitos.forEach(h => {
-    if (!h.GPS || h.GPS.trim()==='' || h.GPS==='No registrado') return;
-    if (!porViaje[h.ID_Viaje] || +h.Nro_Hito > +porViaje[h.ID_Viaje].Nro_Hito) porViaje[h.ID_Viaje] = h;
+  const ecIds = new Set(getViajesEnCurso().map(v=>v.ID_Viaje));
+  const porViaje={};
+  allHitos.forEach(h=>{
+    if(!h.GPS||h.GPS.trim()===''||h.GPS==='No registrado') return;
+    if(!porViaje[h.ID_Viaje]||+h.Nro_Hito>+porViaje[h.ID_Viaje].Nro_Hito) porViaje[h.ID_Viaje]=h;
   });
-
-  Object.entries(porViaje).forEach(([idViaje, hito]) => {
-    const coords = hito.GPS.split(',').map(s=>parseFloat(s.trim()));
-    if (coords.length !== 2 || isNaN(coords[0]) || isNaN(coords[1])) return;
-    const viaje = allViajes.find(v=>v.ID_Viaje===idViaje);
-    if (!viaje) return;
-    const enCurso = enCursoIds.has(idViaje);
-    const color = enCurso ? '#22c55e' : '#3b82f6';
-    const icon = L.divIcon({ className:'', html:`<div style="background:${color};width:14px;height:14px;border-radius:50%;border:2px solid white;box-shadow:0 0 4px rgba(0,0,0,0.5)"></div>`, iconSize:[14,14] });
-    L.marker(coords, { icon })
-      .addTo(mapInstance)
-      .bindPopup(`<b>${viaje.Módulo}</b><br>Orden: ${viaje.Orden_Interna}<br>Chofer: ${viaje.Chofer}<br>Último hito: ${hito.Nombre_Hito}<br>${enCurso?'🟢 En curso':'🔵 Completado'}`);
-    hasMarkers = true;
+  let cnt=0;
+  Object.entries(porViaje).forEach(([id,hito])=>{
+    const coords=hito.GPS.split(',').map(s=>parseFloat(s.trim()));
+    if(coords.length!==2||isNaN(coords[0])||isNaN(coords[1])) return;
+    const v=allViajes.find(x=>x.ID_Viaje===id); if(!v) return;
+    const color=ecIds.has(id)?'#22c55e':'#3b82f6';
+    const icon=L.divIcon({className:'',html:`<div style="background:${color};width:14px;height:14px;border-radius:50%;border:2px solid white;box-shadow:0 0 4px rgba(0,0,0,0.5)"></div>`,iconSize:[14,14]});
+    L.marker(coords,{icon}).addTo(mapInstance).bindPopup(`<b>${v.Módulo}</b><br>Orden: ${v.Orden_Interna}<br>Chofer: ${v.Chofer}<br>Último hito: ${hito.Nombre_Hito}<br>${ecIds.has(id)?'🟢 En curso':'🔵 Completado'}`);
+    cnt++;
   });
-
-  if (!hasMarkers) showToast('⚠️ No hay posiciones GPS registradas aún');
+  if(!cnt) showToast('⚠️ No hay posiciones GPS registradas aún');
 }
 
-// ── USUARIOS ──────────────────────────────────────────────
 function renderUsuarios() {
-  const users = getUsers();
-  const grid = document.getElementById('users-grid');
-  grid.innerHTML = users.map((u,i) => `
+  const users=getUsers();
+  document.getElementById('users-grid').innerHTML=users.map((u,i)=>`
     <div class="user-card">
-      <div class="user-avatar" style="background:${u.rol==='admin'?'var(--purple)':'var(--accent)'}">
-        ${u.nombre.charAt(0).toUpperCase()}
-      </div>
-      <div class="user-info">
-        <div class="user-name">${u.nombre}</div>
-        <div class="user-role">@${u.user} · ${u.rol==='admin'?'Administrador':'Supervisor'}</div>
-      </div>
-      ${currentSupervisor.rol==='admin' && u.user !== currentSupervisor.user ?
-        `<button class="btn-remove" onclick="removeUser(${i})">✕</button>` : ''}
+      <div class="user-avatar" style="background:${u.rol==='admin'?'var(--purple)':'var(--accent)'}">${u.nombre.charAt(0).toUpperCase()}</div>
+      <div class="user-info"><div class="user-name">${u.nombre}</div><div class="user-role">@${u.user} · ${u.rol==='admin'?'Administrador':'Supervisor'}</div></div>
+      ${currentSupervisor?.rol==='admin'&&u.user!==currentSupervisor.user?`<button class="btn-remove" onclick="removeUser(${i})">✕</button>`:''}
     </div>`).join('');
 }
 
 function addUser() {
-  const nombre = document.getElementById('new-nombre').value.trim();
-  const user   = document.getElementById('new-user').value.trim();
-  const pass   = document.getElementById('new-pass').value;
-  const rol    = document.getElementById('new-rol').value;
-  if (!nombre||!user||!pass) { showToast('⚠️ Completá todos los campos'); return; }
-  const users = getUsers();
-  if (users.find(u=>u.user===user)) { showToast('⚠️ El usuario ya existe'); return; }
-  users.push({ nombre, user, pass, rol });
-  saveUsers(users);
-  renderUsuarios();
+  const nombre=document.getElementById('new-nombre').value.trim();
+  const user=document.getElementById('new-user').value.trim();
+  const pass=document.getElementById('new-pass').value;
+  const rol=document.getElementById('new-rol').value;
+  if(!nombre||!user||!pass){showToast('⚠️ Completá todos los campos');return;}
+  const users=getUsers();
+  if(users.find(u=>u.user===user)){showToast('⚠️ El usuario ya existe');return;}
+  users.push({nombre,user,pass,rol});
+  saveUsers(users); renderUsuarios();
   document.getElementById('new-nombre').value='';
   document.getElementById('new-user').value='';
   document.getElementById('new-pass').value='';
@@ -548,27 +461,23 @@ function addUser() {
 }
 
 function removeUser(i) {
-  if (!confirm('¿Eliminar este usuario?')) return;
-  const users = getUsers();
-  users.splice(i,1);
-  saveUsers(users);
-  renderUsuarios();
+  if(!confirm('¿Eliminar este usuario?')) return;
+  const users=getUsers(); users.splice(i,1); saveUsers(users); renderUsuarios();
   showToast('Usuario eliminado');
 }
 
-// ── TABS ──────────────────────────────────────────────────
 function showTab(tab) {
-  ['dashboard','en-curso','historial','mapa','usuarios'].forEach(t => {
+  ['dashboard','en-curso','historial','mapa','usuarios'].forEach(t=>{
     document.getElementById('tab-'+t).classList.remove('active');
     document.getElementById('nav-'+t).classList.remove('active');
   });
   document.getElementById('tab-'+tab).classList.add('active');
   document.getElementById('nav-'+tab).classList.add('active');
-  if (tab==='mapa') setTimeout(()=>{ renderMapa(); if(mapInstance) mapInstance.invalidateSize(); }, 100);
+  if(tab==='mapa') setTimeout(()=>{ renderMapa(); if(mapInstance) mapInstance.invalidateSize(); },100);
 }
-// ── UTILS ─────────────────────────────────────────────────
-function formatDT(d) { return d.toLocaleDateString('es-AR')+' '+d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'}); }
-function showToast(msg,dur=2800) { const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),dur); }
+
+function formatDT(d){return d.toLocaleDateString('es-AR')+' '+d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});}
+function showToast(msg,dur=2800){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),dur);}
 </script>
 </body>
 </html>
